@@ -1,3 +1,16 @@
 .pokemon-select {
     min-width: 300px;
 }
+
+.option-container {
+    display: flex;
+    align-items: center;
+    img {
+        height: 40px;
+        width: auto;
+        margin-right: 4px;
+    }
+    .name {
+        flex-grow: 1;
+    }
+}
