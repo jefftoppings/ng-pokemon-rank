@@ -1,0 +1,26 @@
+<div class="pokemon-stats-container" [formGroup]="formGroup">
+  <mat-form-field>
+    <mat-label>Attack</mat-label>
+    <mat-select formControlName="attack" [value]="0">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Defense</mat-label>
+    <mat-select formControlName="defense" [value]="0">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Stamina</mat-label>
+    <mat-select formControlName="stamina" [value]="0">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
