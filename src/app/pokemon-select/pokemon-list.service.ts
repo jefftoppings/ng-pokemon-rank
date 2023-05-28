@@ -27,8 +27,22 @@ export class PokemonListService {
         return {
           name: p,
           iconUrl: `https://img.pokemondb.net/sprites/go/normal/${p.toLowerCase()}.png`,
+          // iconUrl: '', // saving some data
         };
       });
+  }
+
+  getInfo(pokemon: string): PokemonInfo | undefined {
+    const pkmn: string | undefined =
+      POKEMON_LIST.find((p) => p.toLowerCase() === pokemon.toLowerCase()) ||
+      undefined;
+    return pkmn
+      ? ({
+          name: pkmn,
+          iconUrl: `https://img.pokemondb.net/sprites/go/normal/${pkmn.toLowerCase()}.png`,
+          // iconUrl: '', // saving some data
+        } as PokemonInfo)
+      : undefined;
   }
 }
 

@@ -1,0 +1,11 @@
+<mat-card class="pokemon-rank-card">
+  <mat-card-header *ngIf="pokemonInfo as info">
+    <mat-card-title>
+      <img [src]="info.iconUrl" />
+      <span>{{ info.name }}</span>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Content!</p>
+  </mat-card-content>
+</mat-card>

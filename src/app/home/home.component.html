@@ -2,6 +2,19 @@
   <span>Ng Rank Checker</span>
 </mat-toolbar>
 <div class="content">
-    <app-pokemon-select (pokemonSelected)="handlePokemonSelected($event)"></app-pokemon-select>
-    <app-pokemon-stats (statsChanged)="handleStatsChanged($event)"></app-pokemon-stats>
+  <app-pokemon-select
+    (pokemonSelected)="handlePokemonSelected($event)"
+  ></app-pokemon-select>
+  <app-pokemon-stats
+    (statsChanged)="handleStatsChanged($event)"
+  ></app-pokemon-stats>
+  <button
+    mat-flat-button
+    color="accent"
+    (click)="handleCalculateRank()"
+    [disabled]="calculateDisabled$ | async"
+  >
+    Calculate Rank
+  </button>
+  <app-pokemon-rank [pokemon]="selectedPokemon$ | async"></app-pokemon-rank>
 </div>

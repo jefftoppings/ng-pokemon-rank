@@ -1,0 +1,15 @@
+.pokemon-rank-card {
+    width: 300px;
+    margin-top: 24px;
+    mat-card-header {
+        mat-card-title {
+            display: flex;
+            align-items: center;
+            img {
+                height: 88px;
+                width: auto;
+                margin: -16px;
+            }
+        }
+    }
+}
