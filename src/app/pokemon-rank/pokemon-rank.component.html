@@ -1,79 +1,72 @@
-<mat-card class="pokemon-rank-card">
-  <mat-card-header>
-    <mat-card-title>
-      <ng-container *ngIf="pokemonInfo as info; else noInfo">
-        <img [src]="info.iconUrl" />
-        <span>{{ info.name }}</span>
-      </ng-container>
-      <ng-template #noInfo>
-        <span>Select a Pokemon</span>
-      </ng-template>
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <div
-      *ngIf="pokemonRankByLeague$ | async as rankByLeague"
-      class="content-container"
-    >
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            <div class="great-title">G</div>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div
-            *ngIf="rankByLeague.greatLeague as gl"
-            class="stats-container"
-            [ngClass]="gl.rank | statsContainerColor"
-          >
-            <div>
-              <b>{{ "R" + gl.rank }}</b>
-            </div>
-            <div>{{ gl.cp }}</div>
+<div class="pokemon-rank-card">
+  <div class="title-container">
+    <ng-container *ngIf="pokemonInfo as info">
+      <img [src]="info.iconUrl" />
+      <span>{{ info.name }}</span>
+    </ng-container>
+  </div>
+  <div
+    *ngIf="pokemonRankByLeague$ | async as rankByLeague"
+    class="content-container"
+  >
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <div class="great-title">G</div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div
+          *ngIf="rankByLeague.greatLeague as gl"
+          class="stats-container"
+          [ngClass]="gl.rank | statsContainerColor"
+        >
+          <div>
+            <b>{{ "R" + gl.rank }}</b>
           </div>
-        </mat-card-content>
-      </mat-card>
+          <div>{{ gl.cp }}</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
 
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            <div class="ultra-title">U</div>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div
-            *ngIf="rankByLeague.ultraLeague as ul"
-            class="stats-container"
-            [ngClass]="ul.rank | statsContainerColor"
-          >
-            <div>
-              <b>{{ "R" + ul.rank }}</b>
-            </div>
-            <div>{{ ul.cp }}</div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <div class="ultra-title">U</div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div
+          *ngIf="rankByLeague.ultraLeague as ul"
+          class="stats-container"
+          [ngClass]="ul.rank | statsContainerColor"
+        >
+          <div>
+            <b>{{ "R" + ul.rank }}</b>
           </div>
-        </mat-card-content>
-      </mat-card>
+          <div>{{ ul.cp }}</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
 
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            <div class="master-title">M</div>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div
-            *ngIf="rankByLeague.masterLeague as ml"
-            class="stats-container"
-            [ngClass]="ml.rank | statsContainerColor"
-          >
-            <div>
-              <b>{{ "R" + ml.rank }}</b>
-            </div>
-            <div>{{ ml.cp }}</div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <div class="master-title">M</div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div
+          *ngIf="rankByLeague.masterLeague as ml"
+          class="stats-container"
+          [ngClass]="ml.rank | statsContainerColor"
+        >
+          <div>
+            <b>{{ "R" + ml.rank }}</b>
           </div>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </mat-card-content>
-</mat-card>
+          <div>{{ ml.cp }}</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

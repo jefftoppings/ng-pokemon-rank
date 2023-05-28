@@ -1,22 +1,24 @@
 .pokemon-rank-card {
     width: 300px;
-    margin-top: 24px;
-    mat-card-header {
-        mat-card-title {
-            display: flex;
-            align-items: center;
-            img {
-                height: 60px;
-                width: auto;
-            }
+    margin-top: 16px;
+    .title-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        img {
+            height: 60px;
+            width: auto;
         }
     }
     .content-container {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
         gap: 8px;
         margin-top: 16px;
+        mat-card {
+            margin-top: 16px;
+        }
         .stats-container {
             margin-top: 16px;
             display: flex;
