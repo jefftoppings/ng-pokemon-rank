@@ -1,70 +1,70 @@
 <div class="pokemon-rank-card">
   <div class="title-container">
-    <ng-container *ngIf="pokemonInfo as info">
-      <img [src]="info.iconUrl" />
-      <span>{{ info.name }}</span>
+      <ng-container *ngIf="pokemonInfo as info">
+          <div>{{ info.name }}</div>
+          <img [src]="info.iconUrl" />
     </ng-container>
   </div>
   <div
     *ngIf="pokemonRankByLeague$ | async as rankByLeague"
     class="content-container"
   >
-    <mat-card>
+    <mat-card
+      *ngIf="rankByLeague.greatLeague as gl"
+      [ngClass]="gl.rank | statsContainerColor"
+    >
       <mat-card-header>
         <mat-card-title>
           <div class="great-title">G</div>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <div
-          *ngIf="rankByLeague.greatLeague as gl"
-          class="stats-container"
-          [ngClass]="gl.rank | statsContainerColor"
-        >
+        <div class="stats-container">
           <div>
-            <b>{{ "R" + gl.rank }}</b>
+            <b>{{ "Rank " + gl.rank }}</b>
           </div>
           <div>{{ gl.cp }}</div>
+          <div>{{ gl.level }}</div>
         </div>
       </mat-card-content>
     </mat-card>
 
-    <mat-card>
+    <mat-card
+      *ngIf="rankByLeague.ultraLeague as ul"
+      [ngClass]="ul.rank | statsContainerColor"
+    >
       <mat-card-header>
         <mat-card-title>
           <div class="ultra-title">U</div>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <div
-          *ngIf="rankByLeague.ultraLeague as ul"
-          class="stats-container"
-          [ngClass]="ul.rank | statsContainerColor"
-        >
+        <div class="stats-container">
           <div>
-            <b>{{ "R" + ul.rank }}</b>
+            <b>{{ "Rank " + ul.rank }}</b>
           </div>
           <div>{{ ul.cp }}</div>
+          <div>{{ ul.level }}</div>
         </div>
       </mat-card-content>
     </mat-card>
 
-    <mat-card>
+    <mat-card
+      *ngIf="rankByLeague.masterLeague as ml"
+      [ngClass]="ml.rank | statsContainerColor"
+    >
       <mat-card-header>
         <mat-card-title>
           <div class="master-title">M</div>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <div
-          *ngIf="rankByLeague.masterLeague as ml"
-          class="stats-container"
-          [ngClass]="ml.rank | statsContainerColor"
-        >
+        <div class="stats-container">
           <div>
-            <b>{{ "R" + ml.rank }}</b>
+            <b>{{ "Rank " + ml.rank }}</b>
           </div>
           <div>{{ ml.cp }}</div>
+          <div>{{ ml.level }}</div>
         </div>
       </mat-card-content>
     </mat-card>

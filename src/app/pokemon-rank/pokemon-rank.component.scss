@@ -3,11 +3,12 @@
     margin-top: 16px;
     .title-container {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         font-size: 24px;
         img {
-            height: 60px;
+            height: 88px;
             width: auto;
         }
     }
@@ -25,9 +26,6 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 1px solid black;
-            padding: 4px;
-            border-radius: 8px;
         }
     }
 }
