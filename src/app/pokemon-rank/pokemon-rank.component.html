@@ -1,11 +1,67 @@
 <mat-card class="pokemon-rank-card">
-  <mat-card-header *ngIf="pokemonInfo as info">
+  <mat-card-header>
     <mat-card-title>
-      <img [src]="info.iconUrl" />
-      <span>{{ info.name }}</span>
+      <ng-container *ngIf="pokemonInfo as info; else noInfo">
+        <img [src]="info.iconUrl" />
+        <span>{{ info.name }}</span>
+      </ng-container>
+      <ng-template #noInfo>
+        <span>Select a Pokemon</span>
+      </ng-template>
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <p>Content!</p>
+    <div
+      *ngIf="pokemonRankByLeague$ | async as rankByLeague"
+      class="content-container"
+    >
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <div class="great-title">G</div>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div *ngIf="rankByLeague.greatLeague as gl" class="stats-container">
+            <div>
+              <b>{{ "R" + gl.rank }}</b>
+            </div>
+            <div>{{ gl.cp }}</div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <div class="ultra-title">U</div>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div *ngIf="rankByLeague.ultraLeague as ul" class="stats-container">
+            <div>
+              <b>{{ "R" + ul.rank }}</b>
+            </div>
+            <div>{{ ul.cp }}</div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <div class="master-title">M</div>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div *ngIf="rankByLeague.masterLeague as ml" class="stats-container">
+            <div>
+              <b>{{ "R" + ml.rank }}</b>
+            </div>
+            <div>{{ ml.cp }}</div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </mat-card-content>
 </mat-card>

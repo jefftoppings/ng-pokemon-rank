@@ -50,7 +50,7 @@ export class PokemonStatsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscriptions.push(
       this.formGroup.valueChanges
-        .pipe(startWith({ attack: 0, defense: 0, stamina: 0 }))
+        .pipe(startWith(null))
         .subscribe((value) => {
           this.statsChanged.emit(value);
         })

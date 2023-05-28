@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   private selectedPokemon$$: ReplaySubject<string> = new ReplaySubject(1);
   readonly selectedPokemon$: Observable<string> = this.selectedPokemon$$.asObservable();
   private stats$$: ReplaySubject<PokemonStats> = new ReplaySubject(1);
+  readonly stats$: Observable<PokemonStats> = this.stats$$.asObservable();
   calculateDisabled$!: Observable<boolean>;
 
   ngOnInit(): void {

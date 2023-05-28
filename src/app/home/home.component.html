@@ -16,5 +16,8 @@
   >
     Calculate Rank
   </button>
-  <app-pokemon-rank [pokemon]="selectedPokemon$ | async"></app-pokemon-rank>
+  <app-pokemon-rank
+    [pokemon]="selectedPokemon$ | async"
+    [stats]="stats$ | async"
+  ></app-pokemon-rank>
 </div>
