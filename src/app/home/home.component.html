@@ -8,14 +8,6 @@
   <app-pokemon-stats
     (statsChanged)="handleStatsChanged($event)"
   ></app-pokemon-stats>
-  <button
-    mat-flat-button
-    color="accent"
-    (click)="handleCalculateRank()"
-    [disabled]="calculateDisabled$ | async"
-  >
-    Calculate Rank
-  </button>
   <app-pokemon-rank
     [pokemon]="selectedPokemon$ | async"
     [stats]="stats$ | async"

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { PokemonSelectComponent } from '../pokemon-select/pokemon-select.component';
@@ -8,7 +8,7 @@ import {
   PokemonStatsComponent,
 } from '../pokemon-stats/pokemon-stats.component';
 import { PokemonRankComponent } from '../pokemon-rank/pokemon-rank.component';
-import { combineLatest, map, Observable, ReplaySubject } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -24,21 +24,11 @@ import { combineLatest, map, Observable, ReplaySubject } from 'rxjs';
     PokemonRankComponent,
   ],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   private selectedPokemon$$: ReplaySubject<string> = new ReplaySubject(1);
   readonly selectedPokemon$: Observable<string> = this.selectedPokemon$$.asObservable();
   private stats$$: ReplaySubject<PokemonStats> = new ReplaySubject(1);
   readonly stats$: Observable<PokemonStats> = this.stats$$.asObservable();
-  calculateDisabled$!: Observable<boolean>;
-
-  ngOnInit(): void {
-    this.calculateDisabled$ = combineLatest([
-      this.selectedPokemon$$,
-      this.stats$$,
-    ]).pipe(
-      map(([selectedPokemon, stats]) => Boolean(selectedPokemon && stats))
-    );
-  }
 
   handlePokemonSelected(pokemon: string): void {
     this.selectedPokemon$$.next(pokemon);
@@ -46,9 +36,5 @@ export class HomeComponent implements OnInit {
 
   handleStatsChanged(stats: PokemonStats): void {
     this.stats$$.next(stats);
-  }
-
-  handleCalculateRank(): void {
-    console.log('handle calculate rank');
   }
 }

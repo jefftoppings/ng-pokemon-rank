@@ -20,13 +20,14 @@ import {
   PokemonRankByLeague,
   PokemonRankService,
 } from './pokemon-rank.service';
+import { StatsContainerColorPipe } from './stats-container-color.pipe';
 
 @Component({
   selector: 'app-pokemon-rank',
   templateUrl: './pokemon-rank.component.html',
   styleUrls: ['./pokemon-rank.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatCardModule],
+  imports: [CommonModule, MatCardModule, StatsContainerColorPipe],
 })
 export class PokemonRankComponent implements OnInit, OnDestroy {
   @Input() set pokemon(pokemon: string | null) {
@@ -61,7 +62,9 @@ export class PokemonRankComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       combineLatest([this.stats$$, this.pokemon$$])
         .pipe(
-          filter(([stats, pokemon]) => Boolean(stats && pokemon)),
+          filter(([stats, pokemon]) =>
+            Boolean(pokemon && stats && this.areStatsValid(stats))
+          ),
           tap(() => this.rankLoading$$.next(true)),
           finalize(() => this.rankLoading$$.next(false))
         )
@@ -78,6 +81,13 @@ export class PokemonRankComponent implements OnInit, OnDestroy {
           this.rankLoading$$.next(false);
         })
     );
+  }
+
+  private areStatsValid(stats: PokemonStats): boolean {
+    const attackValid: boolean = Boolean(stats.attack) || stats.attack === 0;
+    const defenseValid: boolean = Boolean(stats.defense) || stats.defense === 0;
+    const staminaValid: boolean = Boolean(stats.stamina) || stats.stamina === 0;
+    return attackValid && defenseValid && staminaValid;
   }
 
   ngOnDestroy(): void {

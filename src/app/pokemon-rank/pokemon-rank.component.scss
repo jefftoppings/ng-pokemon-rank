@@ -16,11 +16,16 @@
         align-items: center;
         justify-content: space-between;
         gap: 8px;
+        margin-top: 16px;
         .stats-container {
+            margin-top: 16px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            border: 1px solid black;
+            padding: 4px;
+            border-radius: 8px;
         }
     }
 }
@@ -60,4 +65,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.gold {
+    background-color: #DDB45F;
+}
+
+.silver {
+    background-color: #A7B1B2;
+}
+
+.bronze {
+    background-color: #D57149;
+}
+
+.top-300 {
+    background-color: #35BC52;
 }

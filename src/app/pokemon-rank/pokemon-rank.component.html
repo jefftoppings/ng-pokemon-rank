@@ -22,7 +22,11 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <div *ngIf="rankByLeague.greatLeague as gl" class="stats-container">
+          <div
+            *ngIf="rankByLeague.greatLeague as gl"
+            class="stats-container"
+            [ngClass]="gl.rank | statsContainerColor"
+          >
             <div>
               <b>{{ "R" + gl.rank }}</b>
             </div>
@@ -38,7 +42,11 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <div *ngIf="rankByLeague.ultraLeague as ul" class="stats-container">
+          <div
+            *ngIf="rankByLeague.ultraLeague as ul"
+            class="stats-container"
+            [ngClass]="ul.rank | statsContainerColor"
+          >
             <div>
               <b>{{ "R" + ul.rank }}</b>
             </div>
@@ -54,7 +62,11 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <div *ngIf="rankByLeague.masterLeague as ml" class="stats-container">
+          <div
+            *ngIf="rankByLeague.masterLeague as ml"
+            class="stats-container"
+            [ngClass]="ml.rank | statsContainerColor"
+          >
             <div>
               <b>{{ "R" + ml.rank }}</b>
             </div>
