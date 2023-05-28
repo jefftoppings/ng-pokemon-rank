@@ -76,7 +76,6 @@ export class PokemonRankComponent implements OnInit, OnDestroy {
             stats.defense,
             stats.stamina
           );
-          console.log(rank);
           this.pokemonRankByLeague$$.next(rank);
           this.rankLoading$$.next(false);
         })
