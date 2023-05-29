@@ -1,0 +1,8 @@
+.pokemon-stats-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    mat-form-field {
+        max-width: 100px;
+    }
+}

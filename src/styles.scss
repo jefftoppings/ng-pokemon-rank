@@ -1,1 +1,107 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@include mat.core();
+$purple-palette: (
+  50: #efe6fb,
+  100: #d3c4ef,
+  200: #b69de1,
+  300: #9975d3,
+  400: #8257c8,
+  500: #6c39bd,
+  600: #6234b7,
+  700: #552cae,
+  800: #4926a6,
+  900: #351998,
+  A100: #ecc3f1,
+  A200: #de9be6,
+  A400: #c354cf,
+  A700: #932eb7,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: white,
+    A700: white,
+  )
+);
+$gainsboro-palette: (
+  50: #fef3e3,
+  100: #fde1b8,
+  200: #fdce8b,
+  300: #fcba5f,
+  400: #fbab42,
+  500: #fa9d32,
+  600: #f5922f,
+  700: #ef832b,
+  800: #e77528,
+  900: #dc5e25,
+  A100: #fafbc3,
+  A200: #f7f89a,
+  A400: #eff14c,
+  A700: #f6c913,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: white,
+  )
+);
+$warn-palette: (
+  50: #ffebef,
+  100: #ffcdc5,
+  200: #f0999f,
+  300: #e77179,
+  400: #f24e58,
+  500: #f83a40,
+  600: #e9313e,
+  700: #d72638,
+  800: #ca1e30,
+  900: #bb0d24,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+$ng-theme-primary: mat.define-palette($purple-palette, 700, 300, 900);
+$ng-theme-accent: mat.define-palette($gainsboro-palette, 300, 100, 500);
+$ng-theme-warn: mat.define-palette($warn-palette, 700);
+$ng-theme-theme: mat.define-light-theme((
+  color: (
+    primary: $ng-theme-primary,
+    accent: $ng-theme-accent,
+    warn: $ng-theme-warn,
+  )
+));
+@include mat.all-component-themes($ng-theme-theme);
+html, body { height: 100%; }
+body { 
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #F4EFF7;
+}

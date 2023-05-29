@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <span class="title">Ng Rank Checker</span>
+</mat-toolbar>
+<div class="content">
+  <app-pokemon-select
+    (pokemonSelected)="handlePokemonSelected($event)"
+  ></app-pokemon-select>
+  <app-pokemon-stats
+    (statsChanged)="handleStatsChanged($event)"
+  ></app-pokemon-stats>
+  <app-pokemon-rank
+    [pokemon]="selectedPokemon$ | async"
+    [stats]="stats$ | async"
+  ></app-pokemon-rank>
+</div>

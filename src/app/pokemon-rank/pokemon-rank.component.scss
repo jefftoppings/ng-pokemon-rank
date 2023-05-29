@@ -1,0 +1,84 @@
+.pokemon-rank-card {
+    width: 300px;
+    margin-top: 16px;
+    .title-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        img {
+            height: 88px;
+            width: auto;
+        }
+    }
+    .content-container {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 16px;
+        mat-card {
+            margin-top: 16px;
+        }
+        .stats-container {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+:host .mat-mdc-card-header {
+    justify-content: center;
+}
+
+.great-title {
+    border-radius: 50%;
+    background-color: #1C1DBA;
+    border: 2px solid #D5110E;
+    color: white;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ultra-title {
+    border-radius: 50%;
+    background-color: #2E3034;
+    border: 2px solid #E2BB1B;
+    color: white;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.master-title {
+    border-radius: 50%;
+    background-color: #5F1477;
+    border: 2px solid #D423E2;
+    color: white;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gold {
+    background-color: #DDB45F;
+}
+
+.silver {
+    background-color: #A7B1B2;
+}
+
+.bronze {
+    background-color: #D57149;
+}
+
+.top-300 {
+    background-color: #35BC52;
+}
